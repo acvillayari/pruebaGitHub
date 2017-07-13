@@ -3,6 +3,7 @@
 import { UsuarioModel } from 'app/models/index';
 import { UserService } from 'app/_services/index';
 
+
 @Component({
     moduleId: module.id,
     templateUrl: 'home.component.html'
@@ -13,6 +14,7 @@ export class HomeComponent implements OnInit {
     users: UsuarioModel[] = [];
 
     constructor(private userService: UserService) {
+        debugger;
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
@@ -25,6 +27,7 @@ export class HomeComponent implements OnInit {
     }
 
     private loadAllUsers() {
+        debugger;
         this.userService.getAll().subscribe(users => { this.users = users; });
     }
 }

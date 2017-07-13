@@ -9,7 +9,15 @@ export class UserService {
     constructor(private http: Http, private config: AppConfig) { }
 
     getAll() {
-        return this.http.get(this.config.apiUrl + '/users', this.jwt()).map((response: Response) => response.json());
+        //return this.http.get(this.config.apiUrl + '/posts', this.jwt()).map((response: Response) => response.json());
+        return this.http.get(this.config.apiUrl + 'posts', '')
+            .map((response: Response) => {
+                // login successful if there's a jwt token in the response
+                debugger;
+                let user = response.json();
+                debugger;
+                return user;
+            });
     }
 
     getById(id: number) {
@@ -25,7 +33,7 @@ export class UserService {
     }
 
     delete(id: number) {
-        return this.http.delete(this.config.apiUrl + '/users/' + id, this.jwt());
+        return this.http.delete(this.config.apiUrl + 'posts/' + id, this.jwt());
     }
 
     // private helper methods

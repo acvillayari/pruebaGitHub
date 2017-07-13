@@ -1,82 +1,89 @@
-﻿ export class UsuarioModel
-    {
-          idUsuario :string;
+﻿export class UsuarioModel {
+    userId: string;
 
-         idCompania :string ;
+    id: string;
 
-         idDivision :string;
+    title: string;
 
-          idTipoUsuario :string;
+    body: string;
 
-          nombre :string;
+    idUsuario: string;
 
-          login :string;
+    idCompania: string;
 
-          password :string;
+    idDivision: string;
 
-          correo :string;
+    idTipoUsuario: string;
 
-          directorio :string;
+    nombre: string;
 
-          flg_situacion :string;
+    login: string;
 
-          flg_situacionb :boolean;
+    password: string;
 
-          flg_contrasenia :string;
+    correo: string;
 
-          nombreCompania :string;
+    directorio: string;
 
-          nombreDivision :string;
+    flg_situacion: string;
 
-          nombreTipoUsuario :string;
+    flg_situacionb: boolean;
 
-          idRol :string;
+    flg_contrasenia: string;
 
-          directorioJs :string;
+    nombreCompania: string;
 
-          nombreRol :string;
+    nombreDivision: string;
 
-          codInterno :string;
+    nombreTipoUsuario: string;
 
-          nombrePersonal :string;
+    idRol: string;
 
-          idPersonal :string;
+    directorioJs: string;
 
-          idPersonalAnt :string;
+    nombreRol: string;
 
-          isDomainUser :boolean;
+    codInterno: string;
 
-          ipMaquina :string;
+    nombrePersonal: string;
 
-          hostMaquina :string;
+    idPersonal: string;
 
-          idUsuarioIngreso :string;
+    idPersonalAnt: string;
 
-          rolesUsuario :string;
+    isDomainUser: boolean;
 
-         /*IEnumerable<CompaniaModel> lstCompania 
+    ipMaquina: string;
 
-         IEnumerable<DivisionModel> lstDivision 
+    hostMaquina: string;
 
-         IEnumerable<TipoUsuarioModel> lstTipoUsuario 
+    idUsuarioIngreso: string;
 
-         List<UsuarioDivisionModel> lstUsuarioDivision */
+    rolesUsuario: string;
 
-          idCargoPers :string;
+    /*IEnumerable<CompaniaModel> lstCompania 
 
-          idDepartamento :string;
+    IEnumerable<DivisionModel> lstDivision 
 
-          idDivisionAdmin :string;
+    IEnumerable<TipoUsuarioModel> lstTipoUsuario 
 
-          divisionAdmin :string;
+    List<UsuarioDivisionModel> lstUsuarioDivision */
 
-          sessionKey :string;
+    idCargoPers: string;
 
-         fecIngreso :any;//date;
+    idDepartamento: string;
 
-          codAlmacen :string;
+    idDivisionAdmin: string;
 
-          idAlmacen :string;
+    divisionAdmin: string;
 
-          esVendedor :string;
-    }
+    sessionKey: string;
+
+    fecIngreso: any;//date;
+
+    codAlmacen: string;
+
+    idAlmacen: string;
+
+    esVendedor: string;
+}
