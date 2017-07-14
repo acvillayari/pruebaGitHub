@@ -1,4 +1,4 @@
-{
+﻿{
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
     "name": "rrhh"
@@ -18,15 +18,24 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
-        "styles.css"
+      "scripts": [
+        "../node_modules/zone.js/dist/zone.js",
+        "../node_modules/core-js/client/shim.min.js",
+        "../node_modules/systemjs/dist/system.src.js",
+        "../systemjs.config.js"
       ],
-      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
-      }
+      },
+      "styles": [
+
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/primeng/resources/primeng.min.css",
+        "../node_modules/primeng/resources/themes/cupertino/theme.css",
+        "styles.css"
+      ]
     }
   ],
   "e2e": {
@@ -34,6 +43,7 @@
       "config": "./protractor.conf.js"
     }
   },
+  
   "lint": [
     {
       "project": "src/tsconfig.app.json"

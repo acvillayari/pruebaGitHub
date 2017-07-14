@@ -1,6 +1,6 @@
 ﻿<!--<div class="col-md-6 col-md-offset-3">
     <h1>Hi {{currentUser.userId}}!</h1>
-    
+
     <h3>All registered users:</h3>
     <ul>
         <li *ngFor="let user of users">
@@ -9,12 +9,38 @@
         </li>
     </ul>
     <p><a [routerLink]="['/login']">Logout</a></p>
-</div>-->
+</div>--> 
+<div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+  <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+  <input #gb type="text" pInputText size="50" placeholder="Filtro Global">
 
+</div>
 
-<p-dataTable [value]="users">
-  <p-column field="userId" header="userId"></p-column>
-  <p-column field="id" header="id2"></p-column>
-  <p-column field="title" header="title2"></p-column>
-  <p-column field="body" header="body2"></p-column>
+<p-dataTable [value]="users" reorderableColumns="true" [responsive]="true" columnResizeMode="expand" rows="10" [paginator]="true" [pageLinks]="3" [rows]="10" [rowsPerPageOptions]="[5,10,20]" [globalFilter]="gb" exportFilename="Usuario" [lazy]="true"  [totalRecords]="totalRecords" (onLazyLoad)="loadUsersLazy($event)" #dt>
+  <p-header>Listado de Usuario
+    <!--<div style="text-align:left">
+      <p-multiSelect [options]="columnOptions" [(ngModel)]="users"></p-multiSelect>
+    </div>-->
+  </p-header>
+
+  <p-column field="userId" header="userId" [filter]="true" filterMatchMode="in" [style]="{'width':'150px'}"> 
+    <ng-template pTemplate="filter" let-col>
+      <p-multiSelect  [options]="idUsers" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value,col.field,col.filterMatchMode)" styleClass="ui-column-filter"></p-multiSelect>
+    </ng-template>
+  </p-column>
+  <p-column field="id" header="Codigo" sortable="true" [filter]="true" filterPlaceholder="Buscar"
+            [style]="{'width':'150px'}" filterMatchMode="equals" >
+    <ng-template pTemplate="filter" let-col>
+      <p-dropdown [options]="idUsers" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value,col.field,col.filterMatchMode)" styleClass="ui-column-filter"></p-dropdown>
+    </ng-template>
+  </p-column>
+  <p-column field="title" header="Titulo" sortable="true" [filter]="true" filterPlaceholder="Buscar" [style]="{'width':'250px'}"></p-column>
+  <p-column field="body" header="Cuerpo" sortable="true" [filter]="true" filterPlaceholder="Buscar" [style]="{'width':'350px'}">
+  </p-column>
+    <p-footer>
+  <div class="ui-helper-clearfix" style="width:100%">
+    <button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add">Nuevo</button>
+    <button type="button" pButton icon="fa-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()" style="float:left">Excel</button>
+    </div>
+  </p-footer>
 </p-dataTable>
