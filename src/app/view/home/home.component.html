@@ -10,11 +10,20 @@
     </ul>
     <p><a [routerLink]="['/login']">Logout</a></p>
 </div>-->
+<div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+  <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+  <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+</div>
+<p-dataTable [value]="users" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" [globalFilter]="gb" #dt>
+  <p-header>Listado de Usuario</p-header>
 
-
-<p-dataTable [value]="users">
-  <p-column field="userId" header="userId"></p-column>
-  <p-column field="id" header="id2"></p-column>
-  <p-column field="title" header="title2"></p-column>
-  <p-column field="body" header="body2"></p-column>
+  <p-column field="userId" header="userId" [filter]="true" filterMatchMode="equals">
+    <ng-template pTemplate="filter" let-col>
+      <p-dropdown [options]="idUsers" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value,col.field,col.filterMatchMode)" styleClass="ui-column-filter"></p-dropdown>
+    </ng-template>
+  </p-column>
+  <p-column field="id" header="Codigo" sortable="true"  [filter]="true" filterPlaceholder="Buscar"></p-column>
+  <p-column field="title" header="Titulo" sortable="true"  [filter]="true" filterPlaceholder="Buscar"></p-column>
+  <p-column field="body" header="Cuerpo" sortable="true"  [filter]="true" filterPlaceholder="Buscar">
+  </p-column>
 </p-dataTable>

@@ -13,9 +13,9 @@ export class UserService {
         return this.http.get(this.config.apiUrl + 'posts', '')
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
-                debugger;
+               
                 let user = response.json();
-                debugger;
+               
                 return user;
             });
     }
