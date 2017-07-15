@@ -2,6 +2,8 @@
 
 import { UsuarioModel } from 'app/models/index';
 import { UserService } from 'app/_services/index';
+import { SelectItem } from 'primeng/primeng';
+
 
 
 @Component({
@@ -12,14 +14,31 @@ import { UserService } from 'app/_services/index';
 export class HomeComponent implements OnInit {
     currentUser: UsuarioModel;
     users: UsuarioModel[] = [];
+    idUsers: SelectItem[];
+    selectedCity: any;
 
     constructor(private userService: UserService) {
-        debugger;
+        
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        
+        
     }
 
     ngOnInit() {
         this.loadAllUsers();
+        this.idUsers = [
+            { label: '1', value: 1 },
+            { label: '2', value: 2 },
+            { label: '3', value: 3 },
+            { label: '4', value: 4 },
+            { label: '5', value: 5 },
+            { label: '6', value: 6 },
+            { label: '7', value: 7 },
+            { label: '8', value: 8 },
+            { label: '9', value: 9 },
+            { label: '10', value: 10 }
+        ];
+
     }
 
     deleteUser(id: number) {
@@ -27,7 +46,7 @@ export class HomeComponent implements OnInit {
     }
 
     private loadAllUsers() {
-        debugger;
+        
         this.userService.getAll().subscribe(users => { this.users = users; });
     }
 }
