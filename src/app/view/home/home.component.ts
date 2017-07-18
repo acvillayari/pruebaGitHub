@@ -2,7 +2,11 @@
 
 import { UsuarioModel } from 'app/models/index';
 import { UserService } from 'app/_services/index';
+<<<<<<< HEAD
 import { SelectItem, LazyLoadEvent} from 'primeng/primeng';
+=======
+import { SelectItem } from 'primeng/primeng';
+>>>>>>> origin/master
 
 
 
@@ -16,10 +20,14 @@ export class HomeComponent implements OnInit {
     users: UsuarioModel[] = [];
     idUsers: SelectItem[];
     selectedCity: any;
+<<<<<<< HEAD
     datasource: UsuarioModel[];
     totalRecords: number;
     cols: any[];
     columnOptions: SelectItem[];
+=======
+
+>>>>>>> origin/master
     constructor(private userService: UserService) {
         
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -30,7 +38,10 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         this.loadAllUsers();
         this.idUsers = [
+<<<<<<< HEAD
             { label: '--Seleccione--', value: 0 },
+=======
+>>>>>>> origin/master
             { label: '1', value: 1 },
             { label: '2', value: 2 },
             { label: '3', value: 3 },
@@ -42,6 +53,7 @@ export class HomeComponent implements OnInit {
             { label: '9', value: 9 },
             { label: '10', value: 10 }
         ];
+<<<<<<< HEAD
         this.cols = [
             { field: 'userId', header: 'userId' },
             { field: 'id', header: 'id' },
@@ -53,6 +65,8 @@ export class HomeComponent implements OnInit {
         for (let i = 0; i < this.cols.length; i++) {
             this.columnOptions.push({ label: this.cols[i].header, value: this.cols[i] });
         }
+=======
+>>>>>>> origin/master
 
     }
 
@@ -61,6 +75,7 @@ export class HomeComponent implements OnInit {
     }
 
     private loadAllUsers() {
+<<<<<<< HEAD
         debugger;
         this.userService.getAll().subscribe(users => {
         //this.users = users;
@@ -75,6 +90,10 @@ export class HomeComponent implements OnInit {
         //    this.totalRecords = this.datasource.length;
         //    this.users = this.datasource.slice(0, 10);
         //});
+=======
+        
+        this.userService.getAll().subscribe(users => { this.users = users; });
+>>>>>>> origin/master
     }
 
     loadUsersLazy(event: LazyLoadEvent) {

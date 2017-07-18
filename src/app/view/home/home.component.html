@@ -9,6 +9,7 @@
         </li>
     </ul>
     <p><a [routerLink]="['/login']">Logout</a></p>
+<<<<<<< HEAD
 </div>--> 
 <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
   <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
@@ -30,10 +31,22 @@
   </p-column>
   <p-column field="id" header="Codigo" sortable="true" [filter]="true" filterPlaceholder="Buscar"
             [style]="{'width':'150px'}" filterMatchMode="equals" >
+=======
+</div>-->
+<div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+  <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+  <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+</div>
+<p-dataTable [value]="users" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" [globalFilter]="gb" #dt>
+  <p-header>Listado de Usuario</p-header>
+
+  <p-column field="userId" header="userId" [filter]="true" filterMatchMode="equals">
+>>>>>>> origin/master
     <ng-template pTemplate="filter" let-col>
       <p-dropdown [options]="idUsers" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value,col.field,col.filterMatchMode)" styleClass="ui-column-filter"></p-dropdown>
     </ng-template>
   </p-column>
+<<<<<<< HEAD
   <p-column field="title" header="Titulo" sortable="true" [filter]="true" filterPlaceholder="Buscar" [style]="{'width':'250px'}"></p-column>
   <p-column field="body" header="Cuerpo" sortable="true" [filter]="true" filterPlaceholder="Buscar" [style]="{'width':'350px'}">
   </p-column>
@@ -43,4 +56,10 @@
     <button type="button" pButton icon="fa-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()" style="float:left">Excel</button>
     </div>
   </p-footer>
+=======
+  <p-column field="id" header="Codigo" sortable="true"  [filter]="true" filterPlaceholder="Buscar"></p-column>
+  <p-column field="title" header="Titulo" sortable="true"  [filter]="true" filterPlaceholder="Buscar"></p-column>
+  <p-column field="body" header="Cuerpo" sortable="true"  [filter]="true" filterPlaceholder="Buscar">
+  </p-column>
+>>>>>>> origin/master
 </p-dataTable>
