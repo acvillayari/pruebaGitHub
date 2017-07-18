@@ -19,10 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "scripts": [
-        "../node_modules/zone.js/dist/zone.js",
         "../node_modules/core-js/client/shim.min.js",
-        "../node_modules/systemjs/dist/system.src.js",
-        "../systemjs.config.js"
+        "systemjs.config.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -31,9 +29,6 @@
       },
       "styles": [
 
-        "../node_modules/font-awesome/css/font-awesome.min.css",
-        "../node_modules/primeng/resources/primeng.min.css",
-        "../node_modules/primeng/resources/themes/cupertino/theme.css",
         "styles.css"
       ]
     }
